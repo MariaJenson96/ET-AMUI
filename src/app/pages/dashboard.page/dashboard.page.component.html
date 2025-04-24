@@ -1,6 +1,6 @@
 <header class="tab-header">
     <mat-toolbar>
-      <span>Dashboard</span>
+      <small>Dashboard</small>
     </mat-toolbar>
   </header>
   
@@ -10,20 +10,18 @@
   
   <footer class="tab-footer">
     <mat-tab-group headerPosition="below">
-      <mat-tab label="First">
+      <mat-tab *ngFor="let tab of listTabs">
         <ng-template mat-tab-label>
-            <div class="row">
+            <div>
                 <div>
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                    <mat-icon fontIcon="{{tab.icon}}"></mat-icon>
                 </div>
                 <div>
-                    <small style="color: #7611f7;">Dashboard</small>
+                    <small style="color: #7611f7;">{{tab.title}}</small>
                 </div>
             </div>                        
         </ng-template>        
       </mat-tab>
-      <mat-tab label="Second"></mat-tab>
-      <mat-tab label="Third"></mat-tab>
     </mat-tab-group>
   </footer>
   
