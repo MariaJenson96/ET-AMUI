@@ -1,0 +1,29 @@
+<header class="tab-header">
+    <mat-toolbar>
+      <span>Dashboard</span>
+    </mat-toolbar>
+  </header>
+  
+  <div class="page-content">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <footer class="tab-footer">
+    <mat-tab-group headerPosition="below">
+      <mat-tab label="First">
+        <ng-template mat-tab-label>
+            <div class="row">
+                <div>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                </div>
+                <div>
+                    <small style="color: #7611f7;">Dashboard</small>
+                </div>
+            </div>                        
+        </ng-template>        
+      </mat-tab>
+      <mat-tab label="Second"></mat-tab>
+      <mat-tab label="Third"></mat-tab>
+    </mat-tab-group>
+  </footer>
+  

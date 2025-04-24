@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+:root {
+  @include mat.toolbar-overrides((
+    container-background-color: white,
+    container-text-color: black,
+  ));
+  @include mat.tabs-overrides((
+    active-indicator-color: #7611f7,
+    active-ripple-color: #7611f7,
+    active-focus-indicator-color: #7611f7
+  ));
+  @include mat.icon-overrides((
+    color: #7611f7
+  ));
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.tab-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  top: env(safe-area-inset-top);
+}
+
+.tab-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  bottom: env(safe-area-inset-bottom);
+}
+
+.page-content {
+  padding-top: 60px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif,
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
