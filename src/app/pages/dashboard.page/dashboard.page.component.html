@@ -1,14 +1,8 @@
-<header class="tab-header">
-    <mat-toolbar>
-      <small>Dashboard</small>
-    </mat-toolbar>
-  </header>
-  
-  <div class="page-content">
+<div class="page-content">
     <router-outlet></router-outlet>
-  </div>
+</div>
   
-  <footer class="tab-footer">
+<footer class="tab-footer">
     <mat-tab-group headerPosition="below">
       <mat-tab *ngFor="let tab of listTabs">
         <ng-template mat-tab-label>
@@ -23,5 +17,5 @@
         </ng-template>        
       </mat-tab>
     </mat-tab-group>
-  </footer>
+</footer>
   

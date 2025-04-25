@@ -1,3 +1,10 @@
+<header class="tab-header">
+    <mat-toolbar>
+      <small>Dashboard</small>
+    </mat-toolbar>
+  </header>
 <div style="padding: 10px;">
-    <app-dashboard-month-card></app-dashboard-month-card>
+    <app-dashboard-month-card [Income]="income" [Expense]="expense"></app-dashboard-month-card>
+    <app-dashboard-chart></app-dashboard-chart>
+    <app-dashboard-line-chart></app-dashboard-line-chart>
 </div>

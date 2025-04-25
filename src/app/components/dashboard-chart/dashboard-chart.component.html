@@ -1,0 +1,14 @@
+<mat-card class="mt-2 border-0" appearance="outlined">
+    <mat-card-header>
+      <span class="text-header">Expenses by Category</span>
+    </mat-card-header>
+    <mat-card-content style="margin-top: 5px;">
+        <apx-chart
+        [series]="listOfValues"
+        [chart]="{ type: 'pie' }"
+        [labels]="listOfChartLabel"
+        [colors]="listOfChartColors" 
+      ></apx-chart>
+    </mat-card-content>
+</mat-card>
+  
