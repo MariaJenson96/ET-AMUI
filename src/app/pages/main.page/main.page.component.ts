@@ -4,6 +4,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardChartComponent } from '../../components/dashboard-chart/dashboard-chart.component';
 import { DashboardLineChartComponent } from '../../components/dashboard-line-chart/dashboard-line-chart.component';
+import { RecentTransactionComponent } from "../../components/recent-transaction/recent-transaction.component";
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,8 @@ import { DashboardLineChartComponent } from '../../components/dashboard-line-cha
     DashboardLineChartComponent,
     MatToolbarModule,
     MatIconModule,
-    DashboardLineChartComponent
+    DashboardLineChartComponent,
+    RecentTransactionComponent
 ],
   templateUrl: './main.page.component.html',
   styleUrl: './main.page.component.scss'

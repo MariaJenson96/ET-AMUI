@@ -1,0 +1,45 @@
+<mat-card class="border-0 mt-2" appearance="outlined">
+    <mat-card-header>
+      <span class="text-header">Recent Transactions</span>
+    </mat-card-header>
+    <mat-card-content style="margin-top: 5px;" class="p-2">
+        <div style="height: 40vh;overflow-y: scroll; padding-bottom: 5px;" class="border-0">
+            <mat-card style="background-color: white;" class="border-0 mt-2" *ngFor="let tr of lisOfTransactions">
+                <mat-card-content style="margin-top: 5px;" class="p-1">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="text-center" style="line-height: 10px;font-size: 11px;color: #7611f7;">
+                                <div>
+                                    <mat-icon>{{tr.icon}}</mat-icon>
+                                </div>
+                                <div>
+                                    <small>{{tr.iconName}}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <h6 class="m-0">{{tr.name}}</h6>
+                                <label style="font-size: 12px;">{{tr.date}}</label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <small
+                                    [ngClass]="{
+                                        'text-success': tr.isIncome,
+                                        'text-danger': !tr.isIncome
+                                    }"
+                                    style="font-size: 15px; font-weight: 400;">
+                                    {{ tr.amount | currency: 'INR' : 'symbol' }}
+                                </small>
+
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</mat-card>
+  
