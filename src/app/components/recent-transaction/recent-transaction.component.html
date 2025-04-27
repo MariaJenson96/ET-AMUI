@@ -3,8 +3,8 @@
       <span class="text-header">Recent Transactions</span>
     </mat-card-header>
     <mat-card-content style="margin-top: 5px;" class="p-2">
-        <div style="height: 40vh;overflow-y: scroll; padding-bottom: 5px;" class="border-0">
-            <mat-card style="background-color: white;" class="border-0 mt-2" *ngFor="let tr of lisOfTransactions">
+        <div style="height: 40vh;overflow-y: scroll;overflow-x: hidden; padding-bottom: 5px;" class="border-0">
+            <mat-card style="background-color: white;" class="border mt-2" *ngFor="let tr of lisOfTransactions">
                 <mat-card-content style="margin-top: 5px;" class="p-1">
                     <div class="row">
                         <div class="col-3">
@@ -30,7 +30,7 @@
                                         'text-success': tr.isIncome,
                                         'text-danger': !tr.isIncome
                                     }"
-                                    style="font-size: 15px; font-weight: 400;">
+                                    style="font-size: 15px; font-weight: 500;">
                                     {{ tr.amount | currency: 'INR' : 'symbol' }}
                                 </small>
 

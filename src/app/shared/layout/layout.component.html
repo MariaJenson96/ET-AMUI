@@ -1,0 +1,74 @@
+<mat-toolbar style="background-color: #7611f7;color: white;top: 0;" class="tab-header">
+    <small>dashboard</small>
+</mat-toolbar>
+
+<div class="tab-footer">
+    <mat-tab-group headerPosition="below">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div>
+                    <div>
+                        <mat-icon fontIcon="home"></mat-icon>
+                    </div>
+                    <div>
+                        <small style="color: #7611f7;">Dashboard</small>
+                    </div>
+                </div>                        
+            </ng-template>  
+            <div class="scroll-container">
+                <app-main></app-main>    
+            </div>            
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div>
+                    <div>
+                        <mat-icon fontIcon="compare_arrows"></mat-icon>
+                    </div>
+                    <div>
+                        <small style="color: #7611f7;">Transaction</small>
+                    </div>
+                </div>                        
+            </ng-template>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div>
+                    <div>
+                        <mat-icon fontIcon="add_circle"></mat-icon>
+                    </div>
+                    <div>
+                        <small style="color: #7611f7;">New</small>
+                    </div>
+                </div>                        
+            </ng-template>
+            <div class="scroll-container">
+                <app-add></app-add>
+            </div>             
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div>
+                    <div>
+                        <mat-icon fontIcon="account_balance"></mat-icon>
+                    </div>
+                    <div>
+                        <small style="color: #7611f7;">Budget</small>
+                    </div>
+                </div>                        
+            </ng-template>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div>
+                    <div>
+                        <mat-icon fontIcon="settings"></mat-icon>
+                    </div>
+                    <div>
+                        <small style="color: #7611f7;">Setting</small>
+                    </div>
+                </div>                        
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+</div>    

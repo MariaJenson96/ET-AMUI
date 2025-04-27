@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatCardModule} from '@angular/material/card';
 import { MatChipsModule} from '@angular/material/chips';
-import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChartType, NgApexchartsModule } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-dashboard-line-chart',
@@ -17,46 +17,43 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 })
 export class DashboardLineChartComponent {
 
-  chartOptions: any;
+  public chartOptions: {
+    series: ApexAxisChartSeries;
+    chart: ApexChart & { type: ChartType };
+    colors: string[]; 
+    xaxis: ApexXAxis;
+    title: ApexTitleSubtitle;
+    plotOptions: ApexPlotOptions;
+  };
 
   constructor() {
-
     this.chartOptions = {
       series: [
         {
           name: 'Sales',
-          data: [
-            { x: 'Jan', y: 1000 },
-            { x: 'Feb', y: 2000 },
-            { x: 'Mar', y: 3000 },
-            { x: 'Apr', y: 4000 },
-            { x: 'May', y: 5000 },
-            { x: 'Jun', y: 6000 },
-            { x: 'Jul', y: 7000 },
-            { x: 'Aug', y: 8000 },
-            { x: 'Sep', y: 9000 }
-          ]
+          data: [30, 40, 45, 50, 49, 60, 70, 0, 0, 0, 0, 0]
         }
       ],
       chart: {
-        type: 'area',
-        height: 350,
-        zoom: { enabled: false }
+        type: 'bar',
+        height: 350
       },
-      dataLabels: { enabled: false },
-      stroke: {
-        curve: 'smooth',
-        width: 2
-      },
-      title: { text: 'Spending Trend (Mountain Chart)', align: 'left' },
-      grid: {
-        row: { colors: ['#f3f3f3', 'transparent'], opacity: 0.5 }
+      colors: ['#7611f7'],
+      plotOptions: {
+        bar: {
+          horizontal: false // 👈 Add this
+        }
       },
       xaxis: {
-        type: 'category',
-        categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep']
+        categories: ['Janu', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: {
+          rotate: -90 // 👈 Now this will work
+        }
       },
-      yaxis: { title: { text: 'Amounts' } }
+      title: {
+        text: 'Spending Trend'
+      }
     };
+    
   }
 }

@@ -5,15 +5,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { DashboardChartComponent } from '../../components/dashboard-chart/dashboard-chart.component';
 import { DashboardLineChartComponent } from '../../components/dashboard-line-chart/dashboard-line-chart.component';
 import { RecentTransactionComponent } from "../../components/recent-transaction/recent-transaction.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   imports: [
     DashboardMonthCardComponent,
-    DashboardChartComponent,
+    // DashboardChartComponent,
     DashboardLineChartComponent,
     MatToolbarModule,
     MatIconModule,
+    CommonModule,
     DashboardLineChartComponent,
     RecentTransactionComponent
 ],
