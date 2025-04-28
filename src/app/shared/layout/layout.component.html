@@ -1,4 +1,4 @@
-<mat-toolbar style="background-color: #7611f7;color: white;top: 0;" class="tab-header">
+<!-- <mat-toolbar style="background-color: #7611f7;color: white;top: 0;" class="tab-header">
     <small>dashboard</small>
 </mat-toolbar>
 
@@ -71,4 +71,34 @@
             </ng-template>
         </mat-tab>
     </mat-tab-group>
-</div>    
+</div>     -->
+
+<mat-toolbar style="background-color: #7611f7; color: white; top: 0;" class="tab-header">
+    <small>dashboard</small>
+  </mat-toolbar>
+  
+  <div class="tab-footer">
+    <mat-tab-group headerPosition="below">
+      <mat-tab *ngFor="let tab of listTabs">
+        <ng-template mat-tab-label>
+          <div>
+            <div>
+              <mat-icon fontIcon="{{ tab.icon }}"></mat-icon>
+            </div>
+            <div>
+              <small style="color: #7611f7;">{{ tab.label }}</small>
+            </div>
+          </div>
+        </ng-template>
+  
+        <div class="scroll-container">
+          <ng-container [ngSwitch]="tab.component">
+            <app-main *ngSwitchCase="'main'"></app-main>
+            <app-add *ngSwitchCase="'add'"></app-add>
+            <p *ngSwitchDefault>No content</p>
+          </ng-container>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  
