@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs';
-import { RouterOutlet } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatToolbarModule} from '@angular/material/toolbar';
-import { DashboardChartComponent } from "../../components/dashboard-chart/dashboard-chart.component";
 import { MainPageComponent } from "../../pages/main.page/main.page.component";
 import { AddPagesComponent } from '../../pages/add.pages/add.pages.component';
 
@@ -25,6 +23,7 @@ import { AddPagesComponent } from '../../pages/add.pages/add.pages.component';
 export class LayoutComponent implements OnInit {
 
   title = 'Dashboard';
+  @ViewChild(MainPageComponent) dashboard! : MainPageComponent;
 
   constructor(private router:Router){}
   ngOnInit(): void {
@@ -45,5 +44,7 @@ export class LayoutComponent implements OnInit {
   onTabChange(index: number) {
     const selectedTab = this.listTabs[index];
     this.title = selectedTab.label;
+
+    if(this.title === "Dashboard") this.dashboard.ngOnInit();
   }
 }

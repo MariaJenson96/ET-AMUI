@@ -74,11 +74,11 @@
 </div>     -->
 
 <mat-toolbar style="background-color: #7611f7; color: white; top: 0;" class="tab-header">
-    <small>dashboard</small>
+    <small>{{title}}</small>
   </mat-toolbar>
   
   <div class="tab-footer">
-    <mat-tab-group headerPosition="below">
+    <mat-tab-group headerPosition="below" (selectedIndexChange)="onTabChange($event)">
       <mat-tab *ngFor="let tab of listTabs">
         <ng-template mat-tab-label>
           <div>

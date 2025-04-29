@@ -45,7 +45,7 @@ export class DashboardLineChartComponent {
         }
       },
       xaxis: {
-        categories: ['Janu', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         labels: {
           rotate: -90 // 👈 Now this will work
         }

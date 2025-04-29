@@ -6,6 +6,7 @@ import { DashboardChartComponent } from '../../components/dashboard-chart/dashbo
 import { DashboardLineChartComponent } from '../../components/dashboard-line-chart/dashboard-line-chart.component';
 import { RecentTransactionComponent } from "../../components/recent-transaction/recent-transaction.component";
 import { CommonModule } from '@angular/common';
+import { Transaction } from '../../interface/transaction';
 
 @Component({
   selector: 'app-main',
@@ -26,6 +27,7 @@ export class MainPageComponent implements OnInit {
   income: number = 0;
   expense: number = 0;
   chartLabels: any = [];
+  recentTransaction:Transaction[] = [];
 
   listOfIncome: any = [
     { id: 1, income: "Salary / Wages" },
@@ -43,6 +45,7 @@ export class MainPageComponent implements OnInit {
   ];
   
   ngOnInit(): void {
-
+        let val = JSON.parse(localStorage.getItem("TransactionDetails") || '[]')
+        if(val !== '[]' && val.length > 0) this.recentTransaction = val;
   }
 }
