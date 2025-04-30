@@ -48,8 +48,17 @@ export class AddPagesComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.transactionForm.valid) {
-      this.arrayOfTransaction.push(this.transactionForm.value)
+    if (this.transactionForm.valid) {      
+
+      let obj: Transaction =  {
+        id:Date.now(),
+        title:  this.transactionForm.controls["title"].value,
+        amount: this.transactionForm.controls["amount"].value,
+        type: this.transactionForm.controls["type"].value,
+        date: this.transactionForm.controls["date"].value,
+        category: this.transactionForm.controls["category"].value
+      }
+      this.arrayOfTransaction.push(obj)
         let formValue = JSON.stringify(this.arrayOfTransaction);        
         localStorage.setItem("TransactionDetails",formValue);
         this.clearFields();        
@@ -64,11 +73,11 @@ export class AddPagesComponent implements OnInit {
 
   clearFields(){
     this.transactionForm.reset({
-      title:[''],
+      title: [''],
+      amount: ['', [Validators.required, Validators.min(0.01)]],
+      type: ['', Validators.required],
       date: new Date(),
-      amount: [''],
-      type: [''],
-      category: ['']
+      category: ['', Validators.required]
     });
   }
 

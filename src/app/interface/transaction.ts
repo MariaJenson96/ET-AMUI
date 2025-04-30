@@ -1,4 +1,5 @@
 export interface Transaction {
+    id:number;  
     title: string;
     amount: number;
     type: number; // You can change to enum or number if needed

@@ -35,10 +35,10 @@ export class LayoutComponent implements OnInit {
 
   listTabs = [
     { label: 'Dashboard', icon: 'home', component: 'main' },
-    { label: 'Transactions', icon: 'compare_arrows', component: 'transaction' },
     { label: 'New', icon: 'add_circle', component: 'add' },
-    { label: 'Budget', icon: 'account_balance' },
-    { label: 'Setting', icon: 'settings' }
+    { label: 'Transactions', icon: 'compare_arrows', component: 'transaction' }    
+    // { label: 'Budget', icon: 'account_balance' },
+    // { label: 'Setting', icon: 'settings' }
   ];
   navigation(path:string){
     this.router.navigate([`dashboard/${path}`]);
