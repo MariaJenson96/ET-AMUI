@@ -26,6 +26,7 @@ export class LayoutComponent implements OnInit {
 
   title = 'Dashboard';
   @ViewChild(MainPageComponent) dashboard! : MainPageComponent;
+  @ViewChild(TransactionPageComponent) transaction!: TransactionPageComponent;
 
   constructor(private router:Router){}
   ngOnInit(): void {
@@ -48,5 +49,6 @@ export class LayoutComponent implements OnInit {
     this.title = selectedTab.label;
 
     if(this.title === "Dashboard") this.dashboard.ngOnInit();
+    else if(this.title === "Transactions") this.transaction.ngOnInit();
   }
 }
