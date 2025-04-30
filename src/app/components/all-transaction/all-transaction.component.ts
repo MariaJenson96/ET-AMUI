@@ -9,7 +9,7 @@ import { Transaction } from '../../interface/transaction';
 import { CommonService } from '../../services/common.service';
 
 @Component({
-  selector: 'app-recent-transaction',
+  selector: 'app-all-transaction',
   imports: [
     MatChipsModule,
     MatCardModule,
@@ -18,11 +18,10 @@ import { CommonService } from '../../services/common.service';
     MatIconModule,
     CommonModule
   ],
-  templateUrl: './recent-transaction.component.html',
-  styleUrl: './recent-transaction.component.scss'
+  templateUrl: './all-transaction.component.html',
+  styleUrl: './all-transaction.component.scss'
 })
-export class RecentTransactionComponent implements OnInit{
-
+export class AllTransactionComponent {
   @Input()lisOfTransactions:Transaction[] = []; 
   @Input() title: string = "";
 
@@ -52,5 +51,4 @@ export class RecentTransactionComponent implements OnInit{
   ngOnInit(): void {
     
   }
-
 }

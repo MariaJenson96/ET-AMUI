@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MainPageComponent } from "../../pages/main.page/main.page.component";
 import { AddPagesComponent } from '../../pages/add.pages/add.pages.component';
+import { TransactionPageComponent } from '../../pages/transaction.page/transaction.page.component';
 
 @Component({
   selector: 'app-layout',
@@ -15,7 +16,8 @@ import { AddPagesComponent } from '../../pages/add.pages/add.pages.component';
     CommonModule,
     MatToolbarModule,
     MainPageComponent,
-    AddPagesComponent
+    AddPagesComponent,
+    TransactionPageComponent
 ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
@@ -33,7 +35,7 @@ export class LayoutComponent implements OnInit {
 
   listTabs = [
     { label: 'Dashboard', icon: 'home', component: 'main' },
-    { label: 'Transaction', icon: 'compare_arrows' },
+    { label: 'Transactions', icon: 'compare_arrows', component: 'transaction' },
     { label: 'New', icon: 'add_circle', component: 'add' },
     { label: 'Budget', icon: 'account_balance' },
     { label: 'Setting', icon: 'settings' }

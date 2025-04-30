@@ -63,8 +63,12 @@ export class AddPagesComponent implements OnInit {
   }
 
   clearFields(){
-    Object.keys(this.transactionForm.controls).forEach(key => {
-      this.transactionForm.get(key)?.reset();
+    this.transactionForm.reset({
+      title:[''],
+      date: new Date(),
+      amount: [''],
+      type: [''],
+      category: ['']
     });
   }
 

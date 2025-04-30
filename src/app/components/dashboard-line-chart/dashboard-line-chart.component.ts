@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatCardModule} from '@angular/material/card';
 import { MatChipsModule} from '@angular/material/chips';
@@ -15,45 +15,44 @@ import { ChartType, NgApexchartsModule } from 'ng-apexcharts';
   templateUrl: './dashboard-line-chart.component.html',
   styleUrl: './dashboard-line-chart.component.scss'
 })
-export class DashboardLineChartComponent {
+export class DashboardLineChartComponent implements OnInit {
 
-  public chartOptions: {
-    series: ApexAxisChartSeries;
-    chart: ApexChart & { type: ChartType };
-    colors: string[]; 
-    xaxis: ApexXAxis;
-    title: ApexTitleSubtitle;
-    plotOptions: ApexPlotOptions;
-  };
+  @Input() listOfYears: string[] = [];
+  @Input() income: number[] = [];
+  @Input() expense: number[] = [];
+  public Options: any;
 
-  constructor() {
-    this.chartOptions = {
+  ngOnInit() {
+    this.Options = {
       series: [
         {
-          name: 'Sales',
-          data: [30, 40, 45, 50, 49, 60, 70, 0, 0, 0, 0, 0]
+          name: 'Income',
+          data: this.income,
+        },
+        {
+          name: 'Expense',
+          data: this.expense,
         }
       ],
       chart: {
-        type: 'bar',
+        type: 'line',
         height: 350
       },
-      colors: ['#7611f7'],
+      colors: ['rgba(40, 167, 69, 0.87)', 'rgba(220, 53, 69, 0.87)'],
       plotOptions: {
         bar: {
-          horizontal: false // 👈 Add this
+          horizontal: false
         }
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: this.listOfYears,
         labels: {
-          rotate: -90 // 👈 Now this will work
+          rotate: -90
         }
       },
       title: {
         text: 'Spending Trend'
       }
     };
-    
-  }
+  } 
 }

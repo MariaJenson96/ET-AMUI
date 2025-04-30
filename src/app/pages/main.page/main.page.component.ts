@@ -28,6 +28,12 @@ export class MainPageComponent implements OnInit {
   expense: number = 0;
   chartLabels: any = [];
   recentTransaction:Transaction[] = [];
+  monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+  IncomeMonthlyTotals: number[] = Array(12).fill(0);
+  ExpenseMonthlyTotals: number[] = Array(12).fill(0);
 
   listOfIncome: any = [
     { id: 1, income: "Salary / Wages" },
@@ -45,7 +51,42 @@ export class MainPageComponent implements OnInit {
   ];
   
   ngOnInit(): void {
-        let val = JSON.parse(localStorage.getItem("TransactionDetails") || '[]')
-        if(val !== '[]' && val.length > 0) this.recentTransaction = val;
+
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+      
+    let arrayOfTransaction: Transaction[] = JSON.parse(localStorage.getItem("TransactionDetails") || '[]')
+    if(arrayOfTransaction.length > 0) {
+      this.recentTransaction = arrayOfTransaction.filter(t => {
+        const transactionDate = new Date(t.date);
+        return (
+          transactionDate.getMonth() === currentMonth &&
+          transactionDate.getFullYear() === currentYear
+        );
+      });
+        this.income = this.recentTransaction
+                          .filter(t => t.type == 1)
+                          .reduce((sum, t) => sum + t.amount, 0);
+
+      this.expense = this.recentTransaction
+        .filter(t => t.type == 2)
+        .reduce((sum, t) => sum + t.amount, 0);
+
+        arrayOfTransaction.forEach(t => {
+          const date = new Date(t.date);
+          const year = date.getFullYear();
+          const month = date.getMonth();
+        
+          if (year === currentYear && t.type == 1) {
+            this.IncomeMonthlyTotals[month] += t.amount;
+          }
+          else if(year === currentYear && t.type == 2){
+            this.ExpenseMonthlyTotals[month] += t.amount;
+          }
+        });
+        console.log(this.IncomeMonthlyTotals);
+        console.log(this.ExpenseMonthlyTotals);
+    }
   }
 }

@@ -1,9 +1,6 @@
-<mat-card class="border-0 mt-2" appearance="outlined">
-    <mat-card-header>
-      <span class="text-header">{{title}}</span>
-    </mat-card-header>
+<mat-card class="border-0" appearance="outlined"> 
     <mat-card-content style="margin-top: 5px;" class="p-2">
-        <div style="height: 40vh;overflow-y: scroll;overflow-x: hidden; padding-bottom: 5px;" class="border-0">
+        <div style="overflow-y: scroll;overflow-x: hidden; padding-bottom: 5px;" class="border-0">
             <mat-card style="background-color: white;" class="border mt-2" *ngFor="let tr of lisOfTransactions">
                 <mat-card-content style="margin-top: 5px;" class="p-1">
                     <div class="row">
